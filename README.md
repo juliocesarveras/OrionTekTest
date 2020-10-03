@@ -1,5 +1,6 @@
 # OrionTekTest
-This is a evaluation test for Orion Tek
+This is an evaluation test for Orion Tek
+I used selenium with C#, also applied the PageFactory for the Page Object design pattern 
 
 The Scenario: 
 Go to Amazon.com and search for an item in the search bar and click the first result that match the search criteria.

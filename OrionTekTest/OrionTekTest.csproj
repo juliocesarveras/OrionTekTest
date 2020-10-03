@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PageObjects\Amazon.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="OTAmazonTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

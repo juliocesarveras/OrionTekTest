@@ -19,8 +19,8 @@ namespace OrionTekTest.PageObjects
         [FindsBy(How = How.Id, Using = "nav-search-submit-text")]
         public IWebElement searchBarSubmitButton { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Apple iPhone 11')]/parent::a")]
-        public IWebElement firstResultTitleLink { get; set; }
+        [FindsBy(How = How.XPath, Using = "//span[contains(@class,'widgetId=search-results')]//img")]
+        public IWebElement firstResultImageLink { get; set; }
 
         [FindsBy(How = How.Id, Using = "root")]
         public IWebElement productDetailMainSection { get; set; }

@@ -35,14 +35,14 @@ namespace OrionTekTest
         /// This Test Case perform the search "iPhone 11" in the amazon search bar and then opens the first result that contains "Apple iphone 11" in the Title by clicking the title in the link .
         /// </summary>
         [TestMethod]
-        public void TestCaseOne()
+        public void OpeningTheFirstResultByClickingeLink()
         {
 
             try
             {
                 string valueToSearch = "iPhone 11";
                 
-                //Enter the value iphone 11 in the search bar
+                //Enter the search value in the search bar
                 amazon.searchBar.SendKeys(valueToSearch);
 
                 //Click search icon in the search bar
@@ -52,7 +52,8 @@ namespace OrionTekTest
                 wait.Until(ExpectedConditions.TitleContains(valueToSearch));
 
                 //Click the Title of the first item in the search's outcome
-                amazon.firstResultTitleLink.Click();
+                IWebElement firstResultTitleLink = driver.FindElement(By.XPath($"//span[contains(text(),'{valueToSearch}')]/parent::a")); //I had to use this here instead of PageObject because of the value to search is dynamic
+                firstResultTitleLink.Click();
 
                 //wait 30 seconds before closing the browser
                 wait.Until(ExpectedConditions.ElementToBeClickable(amazon.productDetailMainSection));
@@ -67,9 +68,29 @@ namespace OrionTekTest
 
         [TestMethod]
 
-        public void TestCaseTwo()
+        public void OpeninTheFirstResultByClickingTheImageLink()
         {
+            try
+            {
+                string valueToSearch = "Pizza";
 
+                //Enter the search value in the search bar and hit ENTER in the keyboard
+                amazon.searchBar.SendKeys(valueToSearch + Keys.Enter);
+
+                //wait for the page to load with the result
+                wait.Until(ExpectedConditions.TitleContains(valueToSearch));
+
+                //Click the Title of the first item in the search's outcome
+                amazon.firstResultImageLink.Click();
+
+                //wait 30 seconds before closing the browser
+                wait.Until(ExpectedConditions.ElementToBeClickable(amazon.productDetailMainSection));
+                Thread.Sleep(3000);
+            }
+            catch (Exception e)
+            {
+                e.Message.ToString();
+            }
         } 
 
         [TestCleanup]

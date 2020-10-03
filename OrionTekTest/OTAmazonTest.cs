@@ -66,6 +66,10 @@ namespace OrionTekTest
 
         }
 
+
+        /// <summary>
+        /// This Test Case perform the search of in item in the amazon search bar and then opens the first result by clicking the Image link .
+        /// </summary>
         [TestMethod]
 
         public void OpeninTheFirstResultByClickingTheImageLink()
